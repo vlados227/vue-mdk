@@ -14,7 +14,20 @@ const app = Vue.createApp({
                 textarea1: null,
                 checkboxes: [],
                 select: null
+            },
+            demo: {
+                disabled: false ,
+                placeholder: 'New placeholder',
+                classes: []
             }
+        }
+    },
+    methods: {
+        buttonClick(){
+            alert('вы нажали кнопку')
+        },
+        formSubmitted(){
+            alert('форма отправлена')
         }
     },
     computed: {
@@ -24,6 +37,7 @@ const app = Vue.createApp({
                 if (comp === '') return true;
                 else return el.company.indexOf(comp) > -1;
             })
+        
         }
     }
 }).mount('#app');

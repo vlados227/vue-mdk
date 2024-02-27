@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Знакомство с фреймворком Vue.JS</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container py-5">
+            <h2 class="mb-5 text-center">Знакомство с фреймворком VueJS</h2>
+            
+            <section class="py-3">
+                <h3 class="mb-3">Отрисовка</h3>
+                <p>Добро пожаловать на курс по <b>{{courseName}}</b>, <b>{{userName}}</b>!</p>
+            </section>
+            
+            <section class="py-3">
+                <h3 class="mb-3">Список</h3>
+                
+                <ul>
+                   <li v-for = "task in tasks">{{task}}</li>
+                </ul>
+            </section>
+
+            <section class="py3">
+                <h3 class="mb-3">Задание с массивами</h3>
+                <div class="col-12 col-md-3">
+                    <input class="form-control mb-3" type="text" v-model = "newPhone">
+                    <button class="btn btn-primary mb-3" v-on:click = "phones.push(newPhone)" >добавить</button>
+                    <ul>
+                        <li v-for = "(phone, index) in phones">
+                            <p>{{phone.title}} - {{phone.company}} <button class="btn btn-danger" v-on:click="phones.splice(index, 1)">удалить</button> </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="py-3">
+                <h3 class="mb-3">Связывание данных</h3>
+                
+                <div class="row">
+                    
+                    <div class="col-12 col-md-3">
+                        <div class="card">
+                            <div class="card-header">Текстовое поле</div>
+                            <div class="card-body">
+                                <input v-model="input1" type="text" class="form-control mb-3" value="Привет всем">
+                                <span>Вы ввели <b>Привет всем</b></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="card">
+                            <div class="card-header">Многострочное текстовое поле</div>
+                            <div class="card-body">
+                                <textarea class="form-control mb-3" rows="3">Тут можно написать большое описание</textarea>
+                                <span>Вы ввели <b>Тут можно написать большое описание</b></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="card">
+                            <div class="card-header">Опции</div>
+                            <div class="card-body">
+                                <div class="d-flex flex-column mb-3">
+                                    <label>
+                                        <input type="checkbox" class="form-check-input" checked> Опция 1
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="form-check-input" checked> Опция 2
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" class="form-check-input"> Опция 3
+                                    </label>
+                                </div>
+                                <span>Вы выбрали опции: <span>Опция 1, Опция 2</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="card">
+                            <div class="card-header">Выпадющий список</div>
+                            <div class="card-body">
+                                <select class="form-control mb-3">
+                                    <option>Значение 1</option>
+                                    <option>Значение 2</option>
+                                    <option>Значение 3</option>
+                                </select>
+                                <span>Вы выбрали <b>Значение 1</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="py-3">
+                <h3 class="mb-3">События</h3>
+                
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header">Элементы управления</div>
+                            <div class="card-body">
+                                <button class="btn btn-primary">Кнопка</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header">Форма</div>
+                            <div class="card-body">
+                                <form>
+                                    <input type="text" class="form-control mb-3" placeholder="Login">
+                                    <input type="text" class="form-control mb-3" placeholder="Password">
+                                <button class="btn btn-primary">Кнопка</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-3">
+            <h3 class="mb-3">Атрибуты</h3>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">Работа с атрибутами</div>
+                        <div class="card-body d-flex flex-column">
+                            <label class="mb-3">
+                                <input type="checkbox" name="disabled"> Заблокировать поле ввода
+                            </label>
+                            <input type="text" class="form-control mb-3" placeholder="Укажите placeholder">
+
+                            <label>
+                                <input type="checkbox" class="form-check-input"> form-control
+                            </label>
+                            <label>
+                                <input type="checkbox" class="form-check-input"> bg-primary
+                            </label>
+                            <label>
+                                <input type="checkbox" class="form-check-input"> text-white
+                            </label>
+                            <label>
+                                <input type="checkbox" class="form-check-input"> mt-5
+                            </label>
+                            <label>
+                                <input type="checkbox" class="form-check-input"> mb-5
+                            </label>
+                            <label>
+                                <input type="checkbox" class="form-check-input"> shadow-lg
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card">
+                        <div class="card-header">Демонстрация</div>
+                        <div class="card-body">
+                            <input type="text" placeholder="Введите текст">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-3">
+            <h3 class="mb-3">Отображение</h3>
+
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header">Видимость сообщений</div>
+                        <div class="card-body">
+                            <label>
+                                <input type="radio"> Показывать
+                            </label>
+                            <label>
+                                <input type="radio"> Скрыть
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card">
+                        <div class="card-header">Метод v-show</div>
+                        <div class="card-body">
+                            <div class="alert alert-info">Информационное сообщение</div>
+                            <div class="alert alert-danger">Сообщение об ошибке</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card">
+                        <div class="card-header">Метод v-if</div>
+                        <div class="card-body">
+                            <div class="alert alert-info">Информационное сообщение</div>
+                            <div class="alert alert-danger">Сообщение об ошибке</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

@@ -48,8 +48,8 @@
                         <div class="card">
                             <div class="card-header">Текстовое поле</div>
                             <div class="card-body">
-                                <input v-model="input1" type="text" class="form-control mb-3" value="Привет всем">
-                                <span>Вы ввели <b>Привет всем</b></span>
+                                <input v-model="forms.input1" type="text" class="form-control mb-3">
+                                <span>Вы ввели <b>{{forms.input1}}</b></span>
                             </div>
                         </div>
                     </div>
@@ -57,8 +57,8 @@
                         <div class="card">
                             <div class="card-header">Многострочное текстовое поле</div>
                             <div class="card-body">
-                                <textarea class="form-control mb-3" rows="3">Тут можно написать большое описание</textarea>
-                                <span>Вы ввели <b>Тут можно написать большое описание</b></span>
+                                <textarea v-model="forms.textarea1" class="form-control mb-3" rows="3">Тут можно написать большое описание</textarea>
+                                <span>Вы ввели <b>{{forms.textarea1}}</b></span>
                             </div>
                         </div>
                     </div>
@@ -68,16 +68,16 @@
                             <div class="card-body">
                                 <div class="d-flex flex-column mb-3">
                                     <label>
-                                        <input type="checkbox" class="form-check-input" checked> Опция 1
+                                        <input type="checkbox" v-model="forms.checkboxes" value="1" class="form-check-input" checked> Опция 1
                                     </label>
                                     <label>
-                                        <input type="checkbox" class="form-check-input" checked> Опция 2
+                                        <input type="checkbox" v-model="forms.checkboxes" value="2" class="form-check-input" > Опция 2
                                     </label>
                                     <label>
-                                        <input type="checkbox" class="form-check-input"> Опция 3
+                                        <input type="checkbox" v-model="forms.checkboxes" value="3" class="form-check-input"> Опция 3
                                     </label>
                                 </div>
-                                <span>Вы выбрали опции: <span>Опция 1, Опция 2</span></span>
+                                <span>Вы выбрали опции: <span>{{forms.checkboxes}}</span></span>
                             </div>
                         </div>
                     </div>
@@ -85,12 +85,12 @@
                         <div class="card">
                             <div class="card-header">Выпадющий список</div>
                             <div class="card-body">
-                                <select class="form-control mb-3">
-                                    <option>Значение 1</option>
-                                    <option>Значение 2</option>
-                                    <option>Значение 3</option>
+                                <select class="form-control mb-3" v-model="forms.select">
+                                    <option value="v1">Значение 1</option>
+                                    <option value="v2">Значение 2</option>
+                                    <option value="v3">Значение 3</option>
                                 </select>
-                                <span>Вы выбрали <b>Значение 1</b></span>
+                                <span>Вы выбрали <b>{{forms.select}}</b></span>
                             </div>
                         </div>
                     </div>

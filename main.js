@@ -10,7 +10,10 @@ const app = Vue.createApp({
                 {title: 'Iphone 14', company: 'Apple'}
             ],
             forms: {
-                input1: null
+                input1: null,
+                textarea1: null,
+                checkboxes: [],
+                select: null
             }
         }
     },
